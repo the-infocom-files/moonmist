@@ -1,48 +1,32 @@
 "COMPILE/LOAD FILE for MOONMIST
 Copyright (C) 1986 Infocom, Inc.  All rights reserved."
 
+<CONSTANT RELEASEID 1> <VERSION ZIP TIME>
+
+<FREQUENT-WORDS?>
+
 <SETG ZDEBUGGING? <>>
 <DEFINE DEBUG-CODE ('X "OPTIONAL" ('Y T))
 	<COND (,ZDEBUGGING? .X) (ELSE .Y)>>
-
-<SETG NEW-VOC? T>
-<FREQUENT-WORDS?>
-<VERSION ZIP TIME>
-
-<COND (<GASSIGNED? PREDGEN>
-       <PRINC "Compiling">
-       <ID 0>)
-      (T <PRINC "Loading">)>
-
-<PRINC " MOONMIST: interactive fiction from Infocom!
-">
-
-ON!-INITIAL	"for DEBUGR"
-OFF!-INITIAL
-ENABLE!-INITIAL
-DISABLE!-INITIAL
-
-<SET REDEFINE T>
-
-<OR <GASSIGNED? ZILCH>
-    <SETG WBREAKS <STRING !\" !,WBREAKS>>>
 
 <DIRECTIONS ;"Do not change the order of the first eight
 	      without consulting Marc! -- per ENCHANTER"
  	    NORTH NE EAST SE SOUTH SW WEST NW UP DOWN IN OUT>
 
-<INSERT-FILE "MACROS">
-<INSERT-FILE "MISC">
-<INSERT-FILE "SYNTAX">
-<INSERT-FILE "PARSER">
-<INSERT-FILE "VERBS">
-<INSERT-FILE "GOAL">
-<INSERT-FILE "PEOPLE">
-<INSERT-FILE "CASTLE">
-<INSERT-FILE "TOWER">
-<INSERT-FILE "THINGS">
-<INSERT-FILE "PLACES">
-<INSERT-FILE "GLOBAL">
-<INSERT-FILE "COLORS">
+<INSERT-FILE "macros">
+<INSERT-FILE "misc">
+<INSERT-FILE "parser">
+
+<INSERT-FILE "syntax">
+<INSERT-FILE "verbs">
 
 <PROPDEF SIZE 5>
+
+<INSERT-FILE "goal">
+<INSERT-FILE "people">
+<INSERT-FILE "castle">
+<INSERT-FILE "tower">
+<INSERT-FILE "things">
+<INSERT-FILE "places">
+<INSERT-FILE "global">
+<INSERT-FILE "colors">
