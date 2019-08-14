@@ -267,7 +267,7 @@ You get out of your car.|">
 	<SETG CLOCK-WAIT T>
 	<TELL "(You can't leave yet. There's a mystery to be solved!)" CR>>
 
-<ROUTINE TELL-ABOUT-CAR ("OPT" X)
+<ROUTINE TELL-ABOUT-CAR ()
 	<TELL "Your new little ">
 	<COND (<PRINT-COLOR> <TELL !\ >)>
 	<TELL 'CAR " is parked here." CR>>
@@ -1418,7 +1418,7 @@ he points out drily. " ,JACK-THINKS-GLADYS
 <GLOBAL WRONG-OUTFIT:NUMBER 0>
 <GLOBAL WASHED:FLAG 0>
 
-<ROUTINE DINNER-TALK (N "AUX" X)
+<ROUTINE DINNER-TALK (N)
 	;<SET X <GET ,P-ITBL ,P-VERBN>>
 	;<COND (<T? .X>		;"for VERB-PRINT"
 	       <PUT .X 0 ,W?EAT>)>
@@ -2488,7 +2488,7 @@ attached to the wall. On the north wall is" THE ,CANDLE !\.>
 	(DESCFCN WENDISH-STUFF-D)
 	(ACTION WENDISH-STUFF-F)>
 
-<ROUTINE WENDISH-STUFF-D ("OPTIONAL" X)
+<ROUTINE WENDISH-STUFF-D ()
 	<TELL
 "Several " 'WENDISH-STUFF "s are lying on the " 'DRESSING-TABLE-LG "."
 	       ;"a roll-top writing table." CR>>
@@ -2508,7 +2508,7 @@ attached to the wall. On the north wall is" THE ,CANDLE !\.>
 	(CAPACITY 37)	;"for COSTUME + BLOWGUN + LENS-BOX + book"
 	(ACTION WENDISH-KIT-F)>
 
-<ROUTINE WENDISH-KIT-F ("AUX" X)
+<ROUTINE WENDISH-KIT-F ()
  <COND (<VERB? EXAMINE LOOK-INSIDE OPEN SEARCH SEARCH-FOR>
 	<SEARCH-KIT-BOX ,WENDISH-KIT " a bunch of nasty-looking instruments">
 	<RTRUE>)
@@ -2612,7 +2612,7 @@ On the south wall is a cheval glass and" THE ,FIGURINE "."
 	(CAPACITY 37)	;"for COSTUME + BLOWGUN + LENS-BOX + book"
 	(ACTION VIVIEN-BOX-F)>
 
-<ROUTINE VIVIEN-BOX-F ("AUX" X)
+<ROUTINE VIVIEN-BOX-F ()
  <COND (<VERB? EXAMINE LOOK-INSIDE OPEN SEARCH SEARCH-FOR>
 	<SEARCH-KIT-BOX ,VIVIEN-BOX " Vivien's brushes and thinner";" and oil">
 	<RTRUE>)

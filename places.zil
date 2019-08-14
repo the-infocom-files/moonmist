@@ -7,7 +7,7 @@ Copyright (C) 1986 Infocom, Inc.  All rights reserved."
 	(DESC "that")
 	(FLAGS NARTICLEBIT)>
 
-<ROUTINE NULL-F ("OPTIONAL" A1 A2)
+<ROUTINE NULL-F ()
 	<RFALSE>>
 
 <ROUTINE DOOR-ROOM (RM DR "AUX" (P 0) TBL)

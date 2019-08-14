@@ -1098,7 +1098,7 @@ late Lord Lionel's memorial birthday dinner,\" he apologizes.
 <GLOBAL BUTLER-RANG-BELL?:FLAG <>>
 <GLOBAL PLAYER-RANG-BELL?:FLAG <>>
 
-<ROUTINE BUTLER-RINGS-BELL? ("OPT" (FAKE <>) "AUX" P)
+<ROUTINE BUTLER-RINGS-BELL? ("OPT" (FAKE <>))
 	<COND (<OR <T? .FAKE>
 		   <ZERO? ,BUTLER-RANG-BELL?>>
 	       <SETG BUTLER-RANG-BELL? T>
@@ -1119,7 +1119,7 @@ late Lord Lionel's memorial birthday dinner,\" he apologizes.
 ". \"That's a bit odd,\" " D .P " comments">)>)>
 	       <TELL "." CR>)>>
 
-<ROUTINE BUTLER-LEAVES ("OPTIONAL" (GARG <>) "AUX" L (VAL <>))
+<ROUTINE BUTLER-LEAVES ("OPTIONAL" (GARG <>) "AUX" (VAL <>))
 	%<DEBUG-CODE <COND (<OR ,IDEBUG <==? .GARG ,G-DEBUG>>
 			    <TELL "[BUTLER-LEAVES:">
 			    <COND (<==? .GARG ,G-DEBUG> <RFALSE>)>)>>
@@ -1902,7 +1902,7 @@ She races off ">
 	       (T <SET O <NEXT? .O>>)>>>
 
 <ROUTINE GHOST-LURKS ("OPTIONAL" (GARG <>)
-		      "AUX" L OBJ (VAL <>) GT C)
+		      "AUX" L (VAL <>) GT C)
 	%<DEBUG-CODE <COND (<OR ,IDEBUG <==? .GARG ,G-DEBUG>>
 			    <TELL "[GHOST-LURKS:">
 			    <COND (<==? .GARG ,G-DEBUG> <RFALSE>)>)>>
