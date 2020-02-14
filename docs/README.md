@@ -20,13 +20,11 @@ The following sources provide further information on Moonmist:
 
 ## Version History
 
-Zarf's Obsessively Complete Infocom Catalog holds copies of the game files for every existing version of Moonmist listed in the Infocom Fact Sheet. It also holds the source files for versions 9/861022 and 13/880501.
-
-| Release | Serial | Story File                | Zarf Sources       | Historical Sources |
-| -------:|:------:|:-------------------------:|:------------------:|:------------------:|
-|       4 | 860918 |  [moonmist-r4-s860918.z3] |                  - |                  - |
-|       9 | 861022 |  [moonmist-r9-s861022.z3] |  [moonmist-r9.zip] |       [revision 9] |
-|      13 | 880501 | [moonmist-r13-s880501.z3] | [moonmist-r13.zip] |   [final revision] |
+| Release | Serial | Type | Story File                | Obsessive Sources  | Historical Sources |
+| -------:|:------:|:----:|:-------------------------:|:------------------:|:------------------:|
+|       4 | 860918 |  PUB |  [moonmist-r4-s860918.z3] |                  - |                  - |
+|       9 | 861022 |  PUB |  [moonmist-r9-s861022.z3] |  [moonmist-r9.zip] |       [revision 9] |
+|      13 | 880501 |  FIN | [moonmist-r13-s880501.z3] | [moonmist-r13.zip] |   [final revision] |
 
 [moonmist-r4-s860918.z3]: https://eblong.com/infocom/gamefiles/moonmist-r4-s860918.z3
 
