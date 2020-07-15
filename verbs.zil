@@ -752,7 +752,7 @@ CHIS ,WINNER " light reveals">)
 	<ROB ,PSEUDO-OBJECT .THING>
 	.ANY? ;.VAL>
 
-<ROUTINE SEE-ANYTHING-IN? (THING "AUX" OBJ NXT (ANY? <>))
+<ROUTINE SEE-ANYTHING-IN? (THING "AUX" OBJ (ANY? <>))
 	 <SET OBJ <FIRST? .THING>>
 	 <REPEAT ()
 		 <COND (.OBJ
@@ -891,7 +891,7 @@ CHIS ,WINNER " light reveals">)
 	<SETG FOLLOWER .PER>
 	<PUT <GT-O .PER> ,GOAL-ENABLE 0>>
 
-<ROUTINE FRIEND-FOLLOWS-YOU (RM "AUX" C)
+<ROUTINE FRIEND-FOLLOWS-YOU (RM)
  <COND (<EQUAL? .RM ,CAR ,YOUR-BATHROOM>
 	<RFALSE>)
        (<OR <FSET? .RM ,SECRETBIT>
@@ -1264,7 +1264,7 @@ them to do.]" CR>>
        (T <RTRUE>)>>"
 
 <ROUTINE VISIBLE? ;"can player SEE object?"
-		  (OBJ "AUX" H L (X <>))
+		  (OBJ "AUX" L (X <>))
 	 <COND (<NOT .OBJ> <RFALSE>)
 	       (<ACCESSIBLE? .OBJ> <RTRUE>)>
 	 <SET X <CORRIDOR-LOOK .OBJ>>
@@ -1787,7 +1787,7 @@ HIM ,PRSO " nor any other preposition.]" CR>)>
 	<PERFORM ,V?SIT ,PRSO>
 	<RTRUE>>
 
-<ROUTINE V-CLIMB-UP ("OPTIONAL" (DIR ,P?UP) (OBJ <>) "AUX" X)
+<ROUTINE V-CLIMB-UP ("OPTIONAL" (DIR ,P?UP) (OBJ <>))
 	 <COND (<IN? ,PRSO ,ROOMS>	;"GO UP TO room"
 		<PERFORM ,V?WALK-TO ,PRSO>
 		<RTRUE>)
@@ -1951,7 +1951,7 @@ HIM ,PRSO " nor any other preposition.]" CR>)>
 	<RTRUE>)
        (T <HAR-HAR>)>>
 
-<ROUTINE FIND-OUTFIT ("AUX" X)
+<ROUTINE FIND-OUTFIT ()
     <OR <FIND-FLAG ,WINNER ,WEARBIT ,NOW-WEARING>
 	<FIND-FLAG-HERE ,WEARBIT>
 	<FIND-OUTFIT-IN ,LUGGAGE>
@@ -2092,7 +2092,7 @@ HIM ,PRSO " nor any other preposition.]" CR>)>
 		      <RTRUE>)>)
 	      (T <DONT-UNDERSTAND>)>)>>
 
-<ROUTINE V-THROUGH ;("OPTIONAL" (OBJ <>)) ("AUX" RM DIR)
+<ROUTINE V-THROUGH ("AUX" RM)
 	<COND (<AND <OR <NOUN-USED? ,W?DOOR ,W?GATE ,W?HOLE>
 			<NOUN-USED? ,W?PANEL>>
 		    ;<FSET? ,PRSO ,DOORBIT>
@@ -2294,7 +2294,7 @@ CHE ,WINNER tri HIS ,WINNER " best, but" HE ,WINNER is " too excited." CR>>
 	<SETG CLOCK-WAIT T>
 	<TELL "(If it's that easy, it spoils the fun!)" CR>>
 
-<ROUTINE TELL-LOCATION ("AUX" DIR)
+<ROUTINE TELL-LOCATION ()
 	;<COND (<EQUAL? ,HERE ,UNCONSCIOUS>
 	       <TELL "unconscious.">
 	       <RTRUE>)>
@@ -2487,7 +2487,7 @@ from your dealer or via mail with the form in your package.]" CR>>
 
 <GLOBAL NO-VIOLENCE "You think it over. There's no need to get violent.|">
 
-<ROUTINE V-KISS ("AUX" X)
+<ROUTINE V-KISS ()
 	 <COND (<EQUAL? ,PRSO ,PLAYER>
 		<TELL "You kiss " 'PLAYER " for a minute. Yuk!" CR>)
 	       (<AND <FSET? ,PRSO ,PERSONBIT>
@@ -2514,7 +2514,7 @@ from your dealer or via mail with the form in your package.]" CR>>
 	<SETG CLOCK-WAIT T>
 	<TELL "(Why knock on " A ,PRSO "?)" CR>)>>
 
-<ROUTINE V-STAND ("AUX" P)
+<ROUTINE V-STAND ()
 	 <COND (<AND <==? ,WINNER ,PLAYER>
 		     <NOT <IN? ,PLAYER ,HERE>>
 		     ;<T? ,PLAYER-SEATED>>
@@ -2733,7 +2733,7 @@ from your dealer or via mail with the form in your package.]" CR>>
 		<SETG LIT .OLIT>
 		<RTRUE>)>>
 
-<ROUTINE SEE-INTO? (THERE "OPTIONAL" (TELL? T) (IGNORE-DOOR <>)"AUX" P L TBL O)
+<ROUTINE SEE-INTO? (THERE "OPTIONAL" (TELL? T) (IGNORE-DOOR <>)"AUX" P L TBL)
  ;<COND (<AND <EQUAL? ,CAR ,HERE .THERE>
 	     <EQUAL? <GETP ,CAR ,P?STATION> ,HERE .THERE>>
 	<RTRUE>)>
@@ -2806,7 +2806,7 @@ from your dealer or via mail with the form in your package.]" CR>>
 	       (T
 		<TELL "That's not a bit useful." CR>)>>
 
-<ROUTINE V-LOOK-UP ("AUX" HR)
+<ROUTINE V-LOOK-UP ()
 	 <COND (<T? ,PRSI>
 		<TELL
 "There's no information in" THE ,PRSI " about" THE ,PRSO "." CR>)
@@ -2868,7 +2868,7 @@ from your dealer or via mail with the form in your package.]" CR>>
 	<PERFORM ,V?HELLO ,ROOMS>
 	<RTRUE>)>>
 
-<ROUTINE V-OPEN ("AUX" F STR)
+<ROUTINE V-OPEN ()
 	 <COND (<NOT <OR <FSET? ,PRSO ,CONTBIT>
 			 <FSET? ,PRSO ,DOORBIT>
 			 <EQUAL? ,PRSO ,WINDOW>>>
@@ -3066,7 +3066,7 @@ And things that go bump in the night, Good Lord, deliver us!\"" CR>>
 <ROUTINE PRE-SREAD () <PERFORM ,V?READ ,PRSI ,PRSO> <RTRUE>>
 <ROUTINE V-SREAD () <V-FOO>>
 
-<ROUTINE PRE-READ ("AUX" VAL)
+<ROUTINE PRE-READ ()
 	 <COND ;(<ZERO? ,LIT> <TOO-DARK> <RTRUE>)
 	       (<IN? ,PRSO ,GLOBAL-OBJECTS>
 		<NOT-HERE ,PRSO>)>>
@@ -3257,7 +3257,7 @@ And things that go bump in the night, Good Lord, deliver us!\"" CR>>
 <ROUTINE PRE-SSEARCH-FOR () <PERFORM ,V?SEARCH-FOR ,PRSI ,PRSO> <RTRUE>>
 <ROUTINE   V-SSEARCH-FOR () <V-FOO>>
 
-<ROUTINE PRE-SEARCH-FOR ("AUX" OBJ)
+<ROUTINE PRE-SEARCH-FOR ()
  <COND (<ROOM-CHECK> <RTRUE>)
        ;(<AND <IN? ,PRSI ,PLAYER>
 	     ;<GETP ,PRSI ,P?GENERIC>
@@ -3574,7 +3574,7 @@ THE ,PRSI " hidden on" HIS ,PRSO " person." CR>)>)>
 CHE ,PRSI do "n't have" THE ,PRSO "!" CR>)>)>)
 	       (T <PRE-TAKE-WITH>)>>
 
-<ROUTINE PRE-TAKE-WITH ("AUX" X)
+<ROUTINE PRE-TAKE-WITH ()
 	 <COND (<DOBJ? YOU>
 		<RFALSE>)
 	       (<AND <FSET? ,PRSO ,PERSONBIT>
@@ -3729,7 +3729,7 @@ CHE ,PRSO is !\  <GET ,LDESC-STRINGS 12> ;"listening to you" "." CR>)>)
 	<TELL ,ANCIENT-SECRETS CR>)
        (T <PRE-ASK-ABOUT>)>>
 
-<ROUTINE V-TELL-ABOUT ("AUX" P)
+<ROUTINE V-TELL-ABOUT ()
  <COND ;(<DOBJ? PLAYER>
 	<COND (<SET P <GETP ,PRSI ,P?TEXT>>
 	       <TELL .P CR>)
@@ -3965,7 +3965,7 @@ CHE ,PRSO is !\  <GET ,LDESC-STRINGS 12> ;"listening to you" "." CR>)>)
 		<RTRUE>)
 	       (T <RFALSE>)>>
 
-<ROUTINE V-WAIT-FOR ("AUX" WHO)
+<ROUTINE V-WAIT-FOR ()
 	 <COND (<AND <NOT <==? -1 ,P-NUMBER>>
 		     <DOBJ? ROOMS TURN INTNUM>>
 		<COND ;(<G? ,P-NUMBER ,PRESENT-TIME> <V-WAIT-UNTIL> <RTRUE>)
@@ -4027,7 +4027,7 @@ CHE ,PRSO " is wide awake, or haven't you noticed?" CR>)>)
 	       (T
 		<TOO-BAD-BUT ,PRSO "not asleep">)>>
 
-<ROUTINE DO-WALK (DIR "AUX" P)
+<ROUTINE DO-WALK (DIR)
 	 <SETG P-WALK-DIR .DIR>
 	 <PERFORM ,V?WALK .DIR>>
 
@@ -4327,7 +4327,7 @@ CHE .X " says, \"I wish you wouldn't change clothes while I'm here!\"" CR>
 	       <TELL " Someone might come in without knocking.">)>
 	<RTRUE>)>>
 
-<ROUTINE V-WEAR ("AUX" X)
+<ROUTINE V-WEAR ()
 	<COND (<NOT <ZERO? ,PRSO>>
 	       <COND (<NOT <FSET? ,PRSO ,WEARBIT>>
 		      <TELL CHE ,WINNER " can't wear" HIM ,PRSO>

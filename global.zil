@@ -108,7 +108,7 @@ Copyright (C) 1986 Infocom, Inc.  All rights reserved."
 	(FLAGS SEENBIT SURFACEBIT OPENBIT)
 	(ACTION FLOOR-F)>
 
-<ROUTINE FLOOR-F ("AUX" (OBJ <>) N)
+<ROUTINE FLOOR-F ("AUX" (OBJ <>))
  <COND ;(<REMOTE-VERB?> <RFALSE>)
        (<VERB? CLIMB-ON>
 	<ALREADY ,WINNER "on it">)
@@ -170,7 +170,7 @@ to continue?">
 <GLOBAL FOUND-LOC:OBJECT <>>
 <GLOBAL NOTHING-NEW "You don't find anything new there.|">
 
-<ROUTINE I-FOUND-IT ("OPTIONAL" (GARG <>) "AUX" OBJ)
+<ROUTINE I-FOUND-IT ("OPTIONAL" (GARG <>))
 	%<DEBUG-CODE <COND (<OR ,IDEBUG <==? .GARG ,G-DEBUG>>
 			    <TELL "[I-FOUND-IT:">
 			    <COND (<==? .GARG ,G-DEBUG> <RFALSE>)>)>>
@@ -600,7 +600,7 @@ through the " 'KEYHOLE "." CR>)
 	(FLAGS TRYTAKEBIT ;NARTICLEBIT ;PLURALBIT SEENBIT)
 	(ACTION HANDS-F)>
 
-<ROUTINE HANDS-F ("AUX" P A)
+<ROUTINE HANDS-F ("AUX" P)
  <COND (<NOT <SET P <FIND-BODY ,HANDS>>>
 	<RTRUE>)
        (<REMOTE-VERB?>
@@ -647,7 +647,7 @@ through the " 'KEYHOLE "." CR>)
 	(FLAGS ;NARTICLEBIT SEENBIT)
 	(ACTION HEAD-F)>
 
-<ROUTINE HEAD-F ("AUX" P P2)
+<ROUTINE HEAD-F ("AUX" P)
  <COND (<NOT <SET P <FIND-BODY ,HEAD>>>
 	<RTRUE>)
        (<REMOTE-VERB?>
@@ -671,7 +671,7 @@ through the " 'KEYHOLE "." CR>)
 	(FLAGS VOWELBIT ;PLURALBIT SEENBIT)
 	(ACTION EYE-F)>
 
-<ROUTINE EYE-F ("AUX" P P2)
+<ROUTINE EYE-F ("AUX" P)
  <COND (<NOT <SET P <FIND-BODY ,EYE>>>
 	<RTRUE>)
        (<REMOTE-VERB?>
@@ -741,7 +741,7 @@ but confesses that he hates even to admit that he needs them." CR>)>)>)>>
 	;(SIZE 20)
 	(ACTION OTHER-OUTFIT-F)>
 
-<ROUTINE OTHER-OUTFIT-F ("AUX" P P2)
+<ROUTINE OTHER-OUTFIT-F ("AUX" P)
  <COND (<NOT <SET P <FIND-BODY ,OTHER-OUTFIT>>>
 	<RTRUE>)
        (<REMOTE-VERB?>

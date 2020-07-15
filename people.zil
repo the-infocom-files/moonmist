@@ -1039,7 +1039,7 @@ gone!\"" CR>)
 	       <TELL ".\"" CR>)
 	      (T <WHY-ME> <RFATAL>)>>
 
-<ROUTINE OFFICER-F ("OPTIONAL" (ARG 0) "AUX" P OBJ X)
+<ROUTINE OFFICER-F ("OPTIONAL" (ARG 0) "AUX" OBJ X)
  <COND (<==? .ARG ,M-WINNER>
 	<SETG FAWNING <>>
 	<COND (<AND <EQUAL? ,AWAITING-REPLY ,OFFICER-1-R ,OFFICER-2-R>
@@ -1390,7 +1390,7 @@ mistreatment of her grandfather.">
 	(LINE 0)
 	(CHARACTER 6)>
 
-<ROUTINE DEALER-D ("OPTIONAL" (ARG 0) "AUX" PER)
+<ROUTINE DEALER-D ("OPTIONAL" (ARG 0))
 	<COND (T ;<FSET? ,DEALER ,TOUCHBIT>
 	       <DESCRIBE-PERSON ,DEALER>)>
 	;<THIS-IS-IT ,PAINTER>
@@ -2340,7 +2340,7 @@ willing to leave you to your own devices."
 		      <RETURN <GOOD-SHOW .PER .OBJ>>)
 		     (T <TELL"\"I know that you found a " D .OBJ ".\"" CR>)>)>>
 
-<ROUTINE PERSON-F (PER ARG "AUX" OBJ X L C N)
+<ROUTINE PERSON-F (PER ARG "AUX" X L C)
  <SET L <LOC .PER>>
  <SET C <GETP .PER ,P?CHARACTER>>
  <COND ;(<==? .ARG ,M-WINNER>
@@ -3183,7 +3183,7 @@ hanging by the " 'FIREPLACE "." CR>)>)>
 	(DESC "such things")
 	(ACTION OBJECT-PAIR-F)>
 
-<ROUTINE OBJECT-PAIR-F ("AUX" P1 P2)
+<ROUTINE OBJECT-PAIR-F ()
  <COND (<L? 2 <GET/B ,P-PRSO ,P-MATCHLEN>>
 	<SETG CLOCK-WAIT T>
 	<TELL
@@ -3200,7 +3200,7 @@ hanging by the " 'FIREPLACE "." CR>)>)>
 	(FLAGS SEENBIT)
 	(ACTION CREW-GLOBAL-F)>
 
-<ROUTINE CREW-GLOBAL-F ("AUX" L)
+<ROUTINE CREW-GLOBAL-F ()
  <COND (<AND <QUEUED? ,I-TOUR>
 	     <VERB? WALK-TO>>
 	<PERFORM ,PRSA <GET ,TOUR-PATH ,TOUR-INDEX>>
